@@ -1,0 +1,17 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:PLWPF.res">
+   
+        
+         <Style x:Name="Style1" TargetType="Button">
+            <Setter Property="FontSize" Value="13"/>
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="Foreground" Value="#FF97536F"/>
+            <Setter Property= "FontFamily" Value="Arial"/>
+            <Setter Property="BorderBrush" Value="#FF7C143F" />
+            <Setter Property="BorderThickness" Value="3"/>
+            <Setter Property="Margin" Value="5"/>
+            </Style>
+        
+</ResourceDictionary>

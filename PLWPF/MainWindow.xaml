@@ -1,0 +1,126 @@
+﻿<Window x:Class="PLWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PLWPF"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid x:Name="MainWindow1">
+        <Grid x:Name="MainWindow_OuterGrid">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1.2*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid x:Name="MainWindow_ButtonsGrid" Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="3*"/>
+                </Grid.RowDefinitions>
+                <Button x:Name="NannyEntryBtn" Content="I'm a Nanny" Foreground="#FF7C143F" Background="White" FontSize="25" Margin="10" FontFamily="Harlow Solid Italic" BorderThickness="2" Click="NannyEntryBtn_OnClick">
+                    <Button.Effect>
+                        <DropShadowEffect/>
+                    </Button.Effect>
+                </Button>
+                <Button x:Name="MotherEnteryBtn" Foreground="#FF7C143F" Background="White" Content="I'm a Mother" Margin="10" Grid.Row="1" FontSize="25" FontFamily="Harlow Solid Italic" BorderThickness="2" Click="MotherEnteryBtn_Click">
+                    <Button.Effect>
+                        <DropShadowEffect/>
+                    </Button.Effect>
+                </Button>
+                <Image x:Name="AppLogo" Grid.Row="2" Source="images/AppLogo.jpg" MouseRightButtonUp="AppLogo_OnMouseRightButtonUp"/>
+                <Grid x:Name="NannyMenuGrid" Margin="10" Visibility="Collapsed" MouseLeave="NannyMenuGrid_OnMouseLeave">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button x:Name="NannyNewBtn" Content="New" FontSize="18"  FontWeight="Bold" Background="White" Foreground="#FF7C143F" FontFamily="Arial" Click="NannyNewBtn_OnClick"/>
+                    <Button x:Name="NannyExistingBtn" Content="Existing" Grid.Column="1" FontSize="18" FontWeight="Bold" Background="White" Foreground="#FF7C143F" FontFamily="Arial" Click="NannyExistingBtn_OnClick"/>
+                </Grid>
+                <Grid x:Name="MotherMenuGrid" Grid.Row="1" Margin="10" Visibility="Collapsed" MouseLeave="MotherMenuGrid_OnMouseLeave">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button x:Name="MotherNewBtn" Content="New" FontSize="18"  FontWeight="Bold" Background="White" Foreground="#FF7C143F" FontFamily="Arial" Click="MotherNewBtn_OnClick"/>
+                    <Button x:Name="MotherExistingBtn" Content="Existing" Grid.Column="1" FontSize="18" FontWeight="Bold" Background="White" Foreground="#FF7C143F" FontFamily="Arial" Click="MotherExistingBtn_OnClick"/>
+                </Grid>
+                <Grid x:Name="NannyIdCheckGrid" Visibility="Collapsed" Grid.Column="0" Grid.Row="0" Grid.RowSpan="2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Button x:Name="NannyIdOkBtn" Content="OK" Grid.Row="1" FontSize="18"  FontWeight="Bold" Background="White" Foreground="#FF7C143F" FontFamily="Arial" Click="NannyIdOkBtn_OnClick" IsDefault="True"/>
+                    <Button x:Name="NannyIdCheckBackBtn" Content="Back" Grid.Row="2" FontSize="18"  FontWeight="Bold" Background="White" Foreground="#FF7C143F" FontFamily="Arial" Click="NannyOptionBackBtn_OnClick"/>
+                    <Grid x:Name="NannyIdTextBoxGrid" Grid.Row="0" Background="#FF7C143F">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label x:Name="NannyIdLabel" VerticalAlignment="Center" HorizontalAlignment="Center" Content="ID:" FontSize="20" FontWeight="Bold" Background="#FF7C143F" Foreground="White"/>
+                        <TextBox x:Name="NannyIdTextBox" Grid.Column="1" Background="White" Margin="5" Text="Please enter your ID here..." Foreground="DarkGray" VerticalContentAlignment="Center" TextAlignment="Center" Padding="0,5" GotFocus="NannyIdTextBox_OnGotFocus" LostFocus="NannyIdTextBox_OnLostFocus" FontSize="14"/>
+                    </Grid>
+                </Grid>
+                <Grid x:Name="MotherIdCheckGrid" Visibility="Collapsed" Grid.Column="0" Grid.Row="0" Grid.RowSpan="2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Button x:Name="MotherIdOkBtn" Content="OK" Grid.Row="1" FontSize="18"  FontWeight="Bold" Background="White" Foreground="#FF7C143F" FontFamily="Arial" Click="MotherIdOkBtn_OnClick" IsDefault="True"/>
+                    <Button x:Name="MotherIdCheckBackBtn" Content="Back" Grid.Row="2" FontSize="18"  FontWeight="Bold" Background="White" Foreground="#FF7C143F" FontFamily="Arial" Click="MotherOptionBackBtn_OnClick"/>
+                    <Grid x:Name="MotherIdTextBoxGrid" Grid.Row="0" Background="#FF7C143F">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label x:Name="MotherIdLabel" VerticalAlignment="Center" HorizontalAlignment="Center" Content="ID:" FontSize="20" FontWeight="Bold" Background="#FF7C143F" Foreground="White"/>
+                        <TextBox x:Name="MotherIdTextBox" Background="White" Grid.Column="1" Margin="5" Text="Please enter your ID here..." Foreground="DarkGray" VerticalContentAlignment="Center" TextAlignment="Center" Padding="0,5" GotFocus="MotherIdTextBox_OnGotFocus" LostFocus="MotherIdTextBox_OnLostFocus" FontSize="14"/>
+                    </Grid>
+                </Grid>
+                <Grid x:Name="NannyOptionGrid" Grid.RowSpan="3" Visibility="Collapsed" Background="White">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="2*"/>
+                        <RowDefinition Height="2*"/>
+                        <RowDefinition Height="2*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Button x:Name="NannyOptionGetContractBtn" Grid.Row="3" Content="View Contracts"  FontSize="18"  FontWeight="Bold" Background="White" Foreground="#FF97536F" FontFamily="Arial" BorderBrush="#FF7C143F" BorderThickness="3" Click="NannyOptionGetContractBtn_OnClick"/>
+                    <Button x:Name="NannyUpdateBtn" Content="UpdateNanny" Grid.Row="1" FontSize="16"  FontWeight="Bold" Background="White" Foreground="#FF97536F" FontFamily="Arial" BorderBrush="#FF7C143F" BorderThickness="3" Click="NannyUpdateBtn_OnClick"/>
+                    <Button x:Name="NannyRemoveBtn" Content="RemoveNanny" Grid.Row="2"  FontSize="16"  FontWeight="Bold" Background="White" Foreground="#FF97536F" FontFamily="Arial" BorderBrush="#FF7C143F" BorderThickness="3" Click="NannyRemoveBtn_OnClick"/>
+                    <Button x:Name="NannyOptionBackBtn" Content="Back" Grid.Row="4"  FontSize="14"  FontWeight="Bold" Background="White" Foreground="#FF97536F" FontFamily="Arial" BorderBrush="#FF7C143F" BorderThickness="3"  Click="NannyOptionBackBtn_Click"/>
+                    <Label Grid.Row="0" x:Name="NannyWelcomeBanner"  Content="Welcome John Doe!" VerticalContentAlignment="Center" Foreground="White" FontWeight="Bold" FontSize="14" FontFamily="Arial" BorderBrush="#FF7C143F" BorderThickness="3" Background="#FFA4155D"/>
+                </Grid>
+
+            </Grid>
+
+            <Grid x:Name="WelcomTextGrid" Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="4*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Label x:Name="WellcomText" Content="Welcome!" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" FontSize="40" Foreground="White" Grid.Row="0" FontFamily="Monotype Corsiva">
+                    <Label.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF53085D" Offset="0"/>
+                            <GradientStop Color="#FFF8F3FF" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Label.Background>
+                </Label>
+                <Image Source="images/Nanny.jpg" Margin="10" Grid.Row="1"></Image>
+                <TextBlock TextWrapping="Wrap" TextAlignment="Center" Grid.Row="2">
+                    ©Written by:<LineBreak/>Nachum Shtauber and Matanya Glik
+                    <LineBreak/>
+                    .NET Mini Project
+                    <LineBreak/>
+                    2017-18, 5778
+                </TextBlock>
+
+            </Grid>
+        </Grid>
+
+    </Grid>
+</Window>

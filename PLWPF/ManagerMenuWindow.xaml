@@ -1,0 +1,214 @@
+﻿<Window x:Class="PLWPF.ManagerMenuWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PLWPF" 
+        xmlns:be="clr-namespace:BE;assembly=BE"
+        mc:Ignorable="d"
+        Title="ManagerMenuWindow" Height="360" Width="1340" >
+
+    <Grid >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="227*"/>
+            <ColumnDefinition Width="84*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="39*"/>
+            <RowDefinition Height="209*"/>
+            <RowDefinition Height="22*"/>
+        </Grid.RowDefinitions>
+        <Image Source="images/boss-baby.png" Grid.RowSpan="3" Margin="0,0,0.2,0.4" Grid.ColumnSpan="2"/>
+        <Grid Background="Transparent" Margin="0,0,0.2,0.058" Grid.ColumnSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="175*"/>
+                <ColumnDefinition Width="117*"/>
+            </Grid.ColumnDefinitions>
+
+            <Label Content="Please choose an action:" Foreground="Black"  Background="Transparent" VerticalContentAlignment="Center" FontFamily="MV Boli" FontSize="20"/>
+            <ComboBox x:Name="MenuComboBox" Margin="10,5"  Opacity="0.5" Background="Transparent" Grid.Column="1" SelectionChanged="MenuComboBox_OnSelectionChanged" />
+        </Grid>
+        <Grid Margin="0,39,0.2,0.4" Grid.RowSpan="3" Grid.ColumnSpan="2">
+            <DataGrid x:Name="nannyDataGrid" Opacity="0.8" Width="Auto" IsReadOnly="True" Visibility="Collapsed" d:DataContext="{d:DesignInstance be:Nanny}" AutoGenerateColumns="False" Grid.Row="1">
+                <DataGrid.Columns>
+                    <DataGridTemplateColumn x:Name="firstNameColumn" Header="First Name" Width="Auto">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Label Content="{Binding FirstName}"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn x:Name="lastNameColumn" Header="Last Name" Width="Auto">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Label Content="{Binding LastName}"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn x:Name="iDColumn" Header="ID" Width="Auto">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Label Content="{Binding ID}"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn x:Name="addressColumn" Header="Address" Width="Auto">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Label Content="{Binding Address}"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn x:Name="birthdayColumn" Header="Birthday" Width="Auto" IsReadOnly="True">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Label Content="{Binding Birthday}"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn x:Name="experienceColumn" Header="Experience" Width="Auto">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Label Content="{Binding Experience}"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn x:Name="floorColumn" Header="Floor" Width="Auto">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Label Content="{Binding Floor}"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn x:Name="isElevatorColumn" Header="Is Elevator" Width="Auto">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Label Content="{Binding IsElevator}"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn x:Name="kidsCapacityColumn" Header="Kids Capacity" Width="Auto">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Label Content="{Binding KidsCapacity}"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn x:Name="kosherFoodColumn" Header="Kosher Food" Width="Auto">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Label Content="{Binding KosherFood}"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn x:Name="maximumAgeColumn" Header="Maximum Age" Width="Auto">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Label Content="{Binding MaximumAge}"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn x:Name="minimumAgeColumn" Header="Minimum Age" Width="Auto">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Label Content="{Binding MinimumAge}"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn x:Name="monthlyWageColumn" Header="Monthly Wage" Width="Auto">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Label Content="{Binding MonthlyWage}"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <DataGridTemplateColumn x:Name="recommendationColumn" Header="Recommendation" Width="Auto">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Label Content="{Binding Recommendation}"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn x:Name="telephoneColumn" Header="Telephone" Width="Auto">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Label Content="{Binding Telephone}"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn x:Name="vacationColumn" Header="Vacation" Width="Auto">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Label Content="{Binding Vacation}"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+            <DataGrid x:Name="motherDataGrid" Opacity="0.8" Visibility="Collapsed" IsReadOnly="True" AutoGenerateColumns="False" EnableRowVirtualization="True" RowDetailsVisibilityMode="VisibleWhenSelected" d:DataContext="{d:DesignInstance be:Mother}">
+                <DataGrid.Columns>
+                    <DataGridTextColumn x:Name="iDColumn1" Binding="{Binding ID}" Header="ID" Width="Auto"/>
+                    <DataGridTextColumn x:Name="firstNameColumn1" Binding="{Binding FirstName}" Header="First Name" Width="Auto"/>
+                    <DataGridTextColumn x:Name="lastNameColumn1" Binding="{Binding LastName}" Header="Last Name" Width="Auto"/>
+                    <DataGridTextColumn x:Name="addressColumn1" Binding="{Binding Address}" Header="Address" Width="Auto"/>
+                    <DataGridTextColumn x:Name="searchAreaColumn" Binding="{Binding SearchArea}" Header="Search Area" Width="Auto"/>
+                    <DataGridTextColumn x:Name="telephoneColumn1" Binding="{Binding Telephone}" Header="Telephone" Width="Auto"/>
+                    <DataGridTextColumn x:Name="budgetColumn" Binding="{Binding Budget}" Header="Budget" Width="Auto"/>
+                    <DataGridTextColumn x:Name="monthlyOrHourlyColumn" Binding="{Binding MonthlyOrHourly}"  Header="Monthly Or Hourly" Width="Auto" />
+                    <DataGridTextColumn x:Name="maxDistanceColumn" Binding="{Binding MaxDistance}" Header="Max Distance" Width="Auto"/>
+                    <DataGridCheckBoxColumn x:Name="kosherFoodColumn1" Binding="{Binding KosherFood}" Header="Kosher Food" Width="Auto"/>
+                    <DataGridCheckBoxColumn x:Name="recommendationColumn1" Binding="{Binding Recommendation}" Header="Recommendation" Width="Auto"/>
+                    <DataGridCheckBoxColumn x:Name="vacationColumn1" Binding="{Binding Vacation}" Header="Vacation" Width="Auto"/>
+                    <DataGridTextColumn x:Name="wantedExperienceColumn" Binding="{Binding WantedExperience}" Header="Wanted Experience" Width="Auto"/>
+                    <DataGridCheckBoxColumn x:Name="wantsElevatorColumn" Binding="{Binding WantsElevator}" Header="Wants Elevator" Width="Auto"/>
+                </DataGrid.Columns>
+            </DataGrid>
+            <DataGrid x:Name="contractDataGrid" Opacity="0.8" Visibility="Collapsed" IsReadOnly="True" AutoGenerateColumns="False" Grid.Row="1" d:DataContext="{d:DesignInstance be:Contract}">
+                <DataGrid.Columns>
+                    <DataGridTextColumn x:Name="childIdColumn" Binding="{Binding ChildId}" Header="Child Id" Width="auto"/>
+                    <DataGridTextColumn x:Name="motherIdColumn" Binding="{Binding MotherId}" Header="Mother Id" Width="auto"/>
+                    <DataGridTextColumn x:Name="nannyIdColumn" Binding="{Binding NannyId}" Header="Nanny Id" Width="auto"/>
+                    <DataGridTemplateColumn x:Name="endDateColumn" Header="End Date" Width="auto" IsReadOnly="True">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <DatePicker IsEnabled="False" SelectedDate="{Binding EndDate, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn x:Name="startDateColumn" Header="Start Date" Width="auto" IsReadOnly="True">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <DatePicker IsEnabled="False"  SelectedDate="{Binding StartDate, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTextColumn x:Name="ContractHourlyWageColumn" Binding="{Binding HourlyWage}" Header="Hourly Wage" Width="auto"/>
+                    <DataGridTextColumn x:Name="ContractMonthlyWageColumn" Binding="{Binding MonthlyWage}" Header="Monthly Wage" Width="auto"/>
+                    <DataGridCheckBoxColumn x:Name="interviewColumn" Binding="{Binding Interview}" Header="Interview" Width="auto"/>
+                    <DataGridTextColumn x:Name="rateColumn" Binding="{Binding Rate}" Header="Rate" Width="auto"/>
+                    <DataGridTextColumn x:Name="salaryColumn" Binding="{Binding Salary}" Header="Salary" Width="auto"/>
+                    <DataGridCheckBoxColumn x:Name="signedColumn" Binding="{Binding Signed}" Header="Signed" Width="auto"/>
+                </DataGrid.Columns>
+            </DataGrid>
+            <DataGrid x:Name="childDataGrid" Opacity="0.8" AutoGenerateColumns="False" Visibility="Collapsed" IsReadOnly="True" EnableRowVirtualization="True" RowDetailsVisibilityMode="VisibleWhenSelected" d:DataContext="{d:DesignInstance be:Child}">
+                <DataGrid.Columns>
+                    <DataGridTextColumn x:Name="iDColumn2" Binding="{Binding ID}" Header="ID" Width="Auto"/>
+                    <DataGridTextColumn x:Name="motherIDColumn1" Binding="{Binding MotherID}" Header="Mother ID" Width="Auto"/>
+                    <DataGridTextColumn x:Name="nameColumn" Binding="{Binding Name}" Header="Name" Width="Auto"/>
+                    <DataGridTemplateColumn x:Name="birthdayColumn1" Header="Birthday" Width="Auto">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <DatePicker SelectedDate="{Binding Birthday, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTextColumn x:Name="needsColumn" Binding="{Binding Needs}" Header="Needs" Width="Auto"/>
+                    <DataGridCheckBoxColumn x:Name="specialNeedsColumn" Binding="{Binding SpecialNeeds}" Header="Special Needs" Width="Auto"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+        <Button Opacity="0.6" Content="Close" Margin="0,188.942,9.2,9.69" Grid.Row="1" Width="75" Background="Transparent" FontWeight="Bold" FontSize="18" BorderThickness="2" HorizontalAlignment="Right" FontFamily="Segoe Script" Grid.RowSpan="2" Grid.ColumnSpan="2" Click="Button_Click"  />
+    </Grid>
+
+</Window>

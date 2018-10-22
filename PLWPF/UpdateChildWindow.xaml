@@ -1,0 +1,65 @@
+﻿<Window x:Class="PLWPF.UpdateChildWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PLWPF"
+        mc:Ignorable="d"
+        Title="UpdateChildWindow" Height="300" Width="300">
+    <Grid x:Name="UpdateChildGrid">
+        <Grid x:Name="UpdateChildMainGrid" >
+            <Grid.Background>
+                <ImageBrush ImageSource="images/addChild.jpg"/>
+            </Grid.Background>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Label VerticalAlignment="Center" Grid.Row="3" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="Birthday:"/>
+            <DatePicker x:Name="birthdayDatePicker" IsEnabled="False" VerticalAlignment="Center" SelectedDate="{Binding Birthday, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="3" Margin="3" HorizontalAlignment="Left" Grid.Column="1" TabIndex="3" IsTabStop="True"/>
+            <Label VerticalAlignment="Center" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="ID:"/>
+            <TextBox x:Name="iDTextBox" IsEnabled="False" Width="120" VerticalAlignment="Bottom" Text="{Binding ID, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Margin="3,0,0,5" Height="23" HorizontalAlignment="Left" Grid.Column="1" TabIndex="0"/>
+            <Label VerticalAlignment="Center" Grid.Row="2" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="Mother ID:"/>
+            <TextBox x:Name="motherIDTextBox" Width="120" VerticalAlignment="Center" Text="{Binding MotherID, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" IsEnabled="False" Grid.Row="2" Margin="3" Height="23" HorizontalAlignment="Left" Grid.Column="1" TabIndex="2"/>
+            <Label VerticalAlignment="Center" Grid.Row="1" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="*Name:"/>
+            <TextBox x:Name="nameTextBox" Width="120" VerticalAlignment="Center" Text="{Binding Name, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="1" Margin="3" Height="23" HorizontalAlignment="Left" Grid.Column="1" TabIndex="1"/>
+            <Label VerticalAlignment="Center" Grid.Row="5" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="Needs:"/>
+            <TextBox x:Name="needsTextBox" Grid.ColumnSpan="2" Width="279" IsEnabled="{Binding ElementName=specialNeedsCheckBox,Path=IsChecked,NotifyOnSourceUpdated=True}" VerticalAlignment="Center" Text="{Binding Needs, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="6" Margin="3,4" Height="22" HorizontalAlignment="Left" Grid.Column="0" TabIndex="5"/>
+            <Label VerticalAlignment="Center" Grid.Row="4" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="Special Needs:"/>
+            <CheckBox x:Name="specialNeedsCheckBox" VerticalAlignment="Center" Grid.Row="4" Margin="3"  IsChecked="{Binding SpecialNeeds, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Grid.Column="1" Content="" TabIndex="4"/>
+            <Button x:Name="UpdateChildCancelBtn" Opacity="0.8" VerticalAlignment="Center" Grid.Row="7" Content="Cancel" Margin="5" FontSize="13" FontWeight="Bold" Background="White" Foreground="Purple" BorderBrush="Purple" BorderThickness="3"   Click="UpdateChildCancelBtn_OnClick"/>
+            <Button x:Name="UpdateChildOKBtn" VerticalAlignment="Center" Grid.Column="1" Grid.Row="7" Content="Update child" Margin="5" FontSize="13" FontWeight="Bold" Background="Transparent" Foreground="Purple" BorderBrush="Purple" BorderThickness="3"   Click="UpdateChildOKBtn_OnClick">
+                <Button.Style>
+                    <Style>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding ElementName=iDTextBox, Path=Text}" Value="0">
+                                <Setter Property="Button.IsEnabled" Value="False"></Setter>
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding ElementName=nameTextBox, Path=Text}" Value="">
+                                <Setter Property="Button.IsEnabled" Value="False"></Setter>
+                            </DataTrigger>
+                            <MultiDataTrigger>
+                                <MultiDataTrigger.Conditions>
+                                    <Condition Binding="{Binding ElementName=specialNeedsCheckBox , Path=IsChecked}" Value="True"/>
+                                    <Condition Binding="{Binding ElementName=needsTextBox , Path=Text}" Value=""/>
+                                </MultiDataTrigger.Conditions>
+                                <Setter Property="Button.IsEnabled" Value="False"/>
+                            </MultiDataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+        </Grid>
+
+    </Grid>
+</Window>

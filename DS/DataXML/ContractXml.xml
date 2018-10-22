@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Contracts>
+  <Contract>
+    <ContractNumber>100002</ContractNumber>
+    <MotherId>604</MotherId>
+    <NannyId>456</NannyId>
+    <ChildId>789</ChildId>
+    <Interview>false</Interview>
+    <HourlyWage>29.35</HourlyWage>
+    <MonthlyWage>3000</MonthlyWage>
+    <Salary>3287.2000000000003</Salary>
+    <Rate>Hourly</Rate>
+    <StartDate>09/01/2018</StartDate>
+    <EndDate>01/01/2019</EndDate>
+    <Signed>true</Signed>
+  </Contract>
+  <Contract>
+    <ContractNumber>100003</ContractNumber>
+    <MotherId>604</MotherId>
+    <NannyId>456</NannyId>
+    <ChildId>777</ChildId>
+    <Interview>true</Interview>
+    <HourlyWage>29.35</HourlyWage>
+    <MonthlyWage>3000</MonthlyWage>
+    <Salary>1150.52</Salary>
+    <Rate>Hourly</Rate>
+    <StartDate>1/19/2018</StartDate>
+    <EndDate>1/1/2019</EndDate>
+    <Signed>true</Signed>
+  </Contract>
+  <Contract>
+    <ContractNumber>100005</ContractNumber>
+    <MotherId>585</MotherId>
+    <NannyId>332505262</NannyId>
+    <ChildId>505</ChildId>
+    <Interview>false</Interview>
+    <HourlyWage>40</HourlyWage>
+    <MonthlyWage>4000</MonthlyWage>
+    <Salary>3920</Salary>
+    <Rate>Monthly</Rate>
+    <StartDate>1/20/2018</StartDate>
+    <EndDate>1/1/2019</EndDate>
+    <Signed>true</Signed>
+  </Contract>
+</Contracts>
